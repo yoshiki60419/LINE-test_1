@@ -52,7 +52,7 @@ func main() {
 	addr := fmt.Sprintf(":%s", port)
 	http.ListenAndServe(addr, nil)
 
-	src_json := http://opendata2.epa.gov.tw/AQX.json
+	src_json := "http://opendata2.epa.gov.tw/AQX.json"
 	u := AQX{}
 	err  := json.Unmarshal(src_json, &u)
 	if err != nil {
