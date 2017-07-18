@@ -71,7 +71,6 @@ func callbackHandler02(w http.ResponseWriter, r *http.Request) {
 
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
-			
 			case *linebot.TextMessage:
 				if _, err = bot.PushMessage(<to>, linebot.NewTextMessage(" 洋蔥姐該起床囉~")).Do(); err != nil {
 					log.Print(err)
