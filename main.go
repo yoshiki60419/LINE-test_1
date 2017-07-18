@@ -71,9 +71,9 @@ func callbackHandler02(w http.ResponseWriter, r *http.Request) {
 
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
-				if _, err := bot.PushMessage(<to>, linebot.NewTextMessage(" 洋蔥姐該起床囉~")).Do(); err != nil {
-					log.Print(err)
-				}
+			if _, err := bot.PushMessage("使用者 ID", linebot.NewTextMessage(" 洋蔥姐該起床囉~")).Do(); err != nil {
+				log.Print(err)
+			}
 		}
 	}
 }
