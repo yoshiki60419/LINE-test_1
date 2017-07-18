@@ -5,7 +5,7 @@
     "showOutput": "silent",
     "options": {
         "env": {
-            "GOPATH": "/Users/yoshiki/src/go"
+            "GOPATH": "/Users/yoshiki/go"
         }
     },
     "tasks": [
