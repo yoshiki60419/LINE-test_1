@@ -13,34 +13,34 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
-	"encoding/json"
-	"time"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 )
 
 var bot *linebot.Client
+
 type AQX struct {
-SiteName string
-County string
-PSI int
-MajorPollution string
-Satus string
-SO2 float32
-CO float32
-O3 int
-PM10 int
-PM2.5 int
-NO2 float32
-WindSpeed float32
-WindDirection float32
-FPMI int
-NOx float32
-NO float32
+	SiteName       string
+	County         string
+	PSI            int
+	MajorPollution string
+	Satus          string
+	SO2            float32
+	CO             float32
+	O3             int
+	PM10           int
+	PM25           int
+	NO2            float32
+	WindSpeed      float32
+	WindDirection  float32
+	FPMI           int
+	NOx            float32
+	NO             float32
 }
 
 func main() {
@@ -54,7 +54,7 @@ func main() {
 
 	src_json := "http://opendata2.epa.gov.tw/AQX.json"
 	u := AQX{}
-	err  := json.Unmarshal(src_json, &u)
+	err := json.Unmarshal(src_json, &u)
 	if err != nil {
 		panic(err)
 	}
@@ -76,12 +76,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(u["SiteName"]+"的 PM2.5 數值為 " + u["PM2.5"])).Do(); err != nil {
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(u["SiteName"]+"的 PM2.5 數值為 "+u["PM2.5"])).Do(); err != nil {
 					log.Print(err)
 				}
 			}
 		}
 	}
 }
-
-
