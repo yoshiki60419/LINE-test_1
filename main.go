@@ -53,7 +53,7 @@ func callbackHandler01(w http.ResponseWriter, r *http.Request) {
 				log.Print(err)
 			}*/
 			case *linebot.TextMessage:
-				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 嗚耶哥最會ㄨㄝ~")).Do(); err != nil {
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 嗚耶哥最會WOOYA~")).Do(); err != nil {
 					log.Print(err)
 				}
 			}
