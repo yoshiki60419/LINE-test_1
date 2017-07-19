@@ -27,13 +27,13 @@ func main() {
 	var err error
 	bot, err = linebot.New(os.Getenv("ChannelSecret"), os.Getenv("ChannelAccessToken"))
 	log.Println("Bot:", bot, " err:", err)
-	http.HandleFunc("/callback", callbackHandler01)
+	http.HandleFunc("/callback", callbackHandler)
 	port := os.Getenv("PORT")
 	addr := fmt.Sprintf(":%s", port)
 	http.ListenAndServe(addr, nil)
 }
 
-func callbackHandler01(w http.ResponseWriter, r *http.Request) {
+func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	events, err := bot.ParseRequest(r)
 
 	if err != nil {
@@ -48,35 +48,10 @@ func callbackHandler01(w http.ResponseWriter, r *http.Request) {
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
-			/*case *linebot.TextMessage:
-			if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 洋蔥姐很會ㄛㄛ~")).Do(); err != nil {
-				log.Print(err)
-			}*/
 			case *linebot.TextMessage:
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 嗚耶哥最會WOOYA~")).Do(); err != nil {
 					log.Print(err)
 				}
-			}
-		}
-	}
-}
-
-func callbackHandler02(w http.ResponseWriter, r *http.Request) {
-	events, err := bot.ParseRequest(r)
-
-	if err != nil {
-		if err == linebot.ErrInvalidSignature {
-			w.WriteHeader(400)
-		} else {
-			w.WriteHeader(500)
-		}
-		return
-	}
-
-	for _, event := range events {
-		if event.Type == linebot.EventTypeMessage {
-			if _, err := bot.PushMessage("使用者 ID", linebot.NewTextMessage(" 洋蔥姐該起床囉~")).Do(); err != nil {
-				log.Print(err)
 			}
 		}
 	}
