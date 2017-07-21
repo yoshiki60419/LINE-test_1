@@ -60,13 +60,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 好哥有ㄛ飽嗎~")).Do(); err != nil {
 						log.Print(err)
 					}
-				}
-				if message.Text == "好哥智商多少" {
+				} else if message.Text == "好哥智商多少" {
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 87 不能再高~~")).Do(); err != nil {
 						log.Print(err)
 					}
-				}
-				else {
+				} else {
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 歐咪雞哇聽都沒有~~")).Do(); err != nil {
 						log.Print(err)
 					}
