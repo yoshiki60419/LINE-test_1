@@ -61,6 +61,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						log.Print(err)
 					}
 				}
+				if message.Text == "好哥智商多少" {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 87 不能再高~~")).Do(); err != nil {
+						log.Print(err)
+					}
+				}
 			}
 		}
 	}
