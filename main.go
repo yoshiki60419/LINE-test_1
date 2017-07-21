@@ -66,6 +66,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						log.Print(err)
 					}
 				}
+				else {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 歐咪雞哇聽都沒有~~")).Do(); err != nil {
+						log.Print(err)
+					}
+				}
 			}
 		}
 	}
