@@ -56,8 +56,12 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				if message.Text == "早安" {
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 好哥有ㄛ飽嗎~")).Do(); err != nil {
+				if message.Text == "洗衣價格" {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 目前為 40 元")).Do(); err != nil {
+						log.Print(err)
+					}
+				} else if message.Text == "洗衣時間" {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 還剩 16 分")).Do(); err != nil {
 						log.Print(err)
 					}
 				} else if message.Text == "好哥智商多少" {
