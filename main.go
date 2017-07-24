@@ -64,6 +64,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 還剩 87 分")).Do(); err != nil {
 						log.Print(err)
 					}
+				} else if message.Text == "烘衣時間" {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 還剩 8787 分")).Do(); err != nil {
+						log.Print(err)
+					}
 				} else if message.Text == "好哥智商多少" {
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 87 不能再高~~")).Do(); err != nil {
 						log.Print(err)
