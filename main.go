@@ -77,6 +77,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						log.Print(err)
 					}
 				}
+			case *linebot.StickerMessage:
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 目前為 40 元")).Do(); err != nil {
+					log.Print(err)
+				}
 			}
 		}
 	}
