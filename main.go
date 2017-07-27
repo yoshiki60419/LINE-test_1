@@ -65,7 +65,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						log.Print(err)
 					}
 				} else if message.Text == "用戶資訊" {
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(" 您的用戶資訊：\n車牌，4Q-5678；本月停車時間：8 小時 30　分。\n本月停車費用：270 元。\n祝您路途順利，謝謝您的使用。")).Do(); err != nil {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(" 您的用戶資訊：\n車牌，4Q-5678。\n本月停車時間：8 小時 30　分。\n本月停車費用：270 元。\n祝您路途順利，謝謝您的使用。")).Do(); err != nil {
 						log.Print(err)
 					}
 				} else {
