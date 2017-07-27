@@ -61,7 +61,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						log.Print(err)
 					}
 				} else if message.Text == "用戶出場" {
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(" 您的出場訊息：\n車牌，4Q-5678；停於：南港停車場。\n出場時間：2017/7/25 12:05；出場代碼：5595。\n本次停車時間：2 小時 0 分。\n提醒您，若出場時車辨失敗，請輸入出場代號即可靠卡繳費，謝謝您的使用。")).Do(); err != nil {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(" 您的出場訊息：\n車牌，4Q-5678；停於：南港停車場。\n出場時間：2017/7/25 12:05；出場代碼：5595。\n本次停車時間：2 小時 0 分。\n本次停車費用：60 元\n本次優惠折抵：0 元\n祝您路途順利，謝謝您的使用。")).Do(); err != nil {
 						log.Print(err)
 					}
 				} else if message.Text == "用戶資訊" {
