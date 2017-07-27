@@ -56,24 +56,24 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				if message.Text == "洗衣價格" {
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 目前為 40 元")).Do(); err != nil {
+				if message.Text == "用戶進場" {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 您的進場訊息：車牌，4Q-5678；南港停車場，2017/7/25 10:05 入場；出場代碼 5595，提醒您，若出場時車辨失敗，請輸入出場代號即可靠卡繳費")).Do(); err != nil {
 						log.Print(err)
 					}
-				} else if message.Text == "洗衣時間" {
+				} else if message.Text == "用戶出場" {
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 還剩 87 分")).Do(); err != nil {
 						log.Print(err)
 					}
-				} else if message.Text == "烘衣時間" {
+				} else if message.Text == "" {
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 還剩 8787 分")).Do(); err != nil {
 						log.Print(err)
 					}
-				} else if message.Text == "好哥智商多少" {
+				} else if message.Text == "" {
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 87 不能再高~~")).Do(); err != nil {
 						log.Print(err)
 					}
 				} else {
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 空匿修哇聽都沒有~~")).Do(); err != nil {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 請輸入停車相關服務 :)")).Do(); err != nil {
 						log.Print(err)
 					}
 				}
