@@ -68,10 +68,6 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(" 您的用戶資訊：\n車牌，4Q-5678；本月停車時間：8 小時 30　分。\n本月停車費用：270 元。\n祝您路途順利，謝謝您的使用。")).Do(); err != nil {
 						log.Print(err)
 					}
-				} else if message.Text == "" {
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 87 不能再高~~")).Do(); err != nil {
-						log.Print(err)
-					}
 				} else {
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 請輸入停車相關服務 :)")).Do(); err != nil {
 						log.Print(err)
