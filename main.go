@@ -57,7 +57,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				if message.Text == "用戶進場" {
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("您的進場資訊：\n車牌：4Q-5678 停於：南港停車場。\n進場時間：2017/7/25 10:05。\n出場代碼：5595。\n提醒您，若出場時車辨失敗，請輸入出場代碼即可靠卡繳費，謝謝您的使用。")).Do(); err != nil {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("您的進場資訊：\n車牌：AB-1234 停於：南港停車場。\n進場時間：2017/7/25 10:05。\n出場代碼：5595。\n提醒您，若出場時車辨失敗，請輸入出場代碼即可靠卡繳費，謝謝您的使用。")).Do(); err != nil {
 						log.Print(err)
 					}
 				} else if message.Text == "用戶出場" {
@@ -69,7 +69,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						log.Print(err)
 					}
 				} else {
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 請輸入停車相關服務 :)")).Do(); err != nil {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text+" 請輸入停車相關服務，謝謝您的合作。")).Do(); err != nil {
 						log.Print(err)
 					}
 				}
