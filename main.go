@@ -57,11 +57,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				if message.Text == "用戶進場" {
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("您的進場資訊：\n車牌：AB-1234(一般用戶) 停於：南港停車場。\n進場時間：2017/7/25 10:05。\n出場代碼：5595。\n提醒您，若出場時車辨失敗，請輸入出場代碼即可靠卡繳費，謝謝您的使用。")).Do(); err != nil {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("您的進場資訊：\n車牌：AB-1234(一般用戶)。\n停放於：南港停車場。\n進場時間：2017/7/25 10:05。\n出場代碼：5595。\n提醒您，若出場時車辨失敗，請輸入出場代碼即可靠卡繳費，謝謝您的使用。")).Do(); err != nil {
 						log.Print(err)
 					}
 				} else if message.Text == "用戶出場" {
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("您的出場資訊：\n車牌：4Q-5678(一般用戶) 停於：南港停車場。\n出場時間：2017/7/25 12:05；出場代碼：5595。\n本次停車時間：2 小時 0 分。\n本次停車費用：60 元\n本次優惠折抵：0 元\n祝您路途順利，謝謝您的使用。")).Do(); err != nil {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("您的出場資訊：\n車牌：4Q-5678(一般用戶)。\n停放於：南港停車場。\n出場時間：2017/7/25 12:05；出場代碼：5595。\n本次停車時間：2 小時 0 分。\n本次停車費用：60 元\n本次優惠折抵：0 元\n祝您路途順利，謝謝您的使用。")).Do(); err != nil {
 						log.Print(err)
 					}
 				} else if message.Text == "用戶資訊" {
@@ -69,7 +69,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						log.Print(err)
 					}
 				} else if message.Text == "停車資訊" {
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("最近一次停車資訊：\n車牌：3Q-1245(月租用戶) 停於：南港停車場。\n進場時間：2017/7/25 10:05。\n出場時間：2017/7/25 12:05。\n本次停車費用：0 元\n出場代碼：5595。\n提醒您，若出場時車辨失敗，請輸入出場代碼即可靠卡繳費，謝謝您的使用。")).Do(); err != nil {
+					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("最近一次停車資訊：\n車牌：3Q-1245(月租用戶)。\n停放於：南港停車場。\n進場時間：2017/7/25 10:05。\n出場時間：2017/7/25 12:05。\n本次停車費用：0 元\n出場代碼：5595。\n提醒您，若出場時車辨失敗，請輸入出場代碼即可靠卡繳費，謝謝您的使用。")).Do(); err != nil {
 						log.Print(err)
 					}
 				} else {
